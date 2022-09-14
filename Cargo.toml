@@ -1,0 +1,32 @@
+[package]
+name = "director"
+version = "0.1.0"
+edition = "2021"
+categories = [ "framework", "algorithms", "rust-patterns", "gamedev"]
+keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
+description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
+homepage = "https://github.com/just-do-halee/director"
+repository = "https://github.com/just-do-halee/director"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+
+exclude = [
+    "RELEASE.md",
+    ".gitignore",
+    ".github/",
+    "crates/"
+]
+
+[workspace]
+members = [
+    "crates/*",
+]
+
+[[example]]
+name = "basic"
+path = "examples/basic/basic.rs"
+
+[dependencies]
+director_core = { path = "crates/director_core", version = "0.1" }
+lazy_static = "1.4.0"
+

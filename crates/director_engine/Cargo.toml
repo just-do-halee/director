@@ -1,0 +1,12 @@
+[package]
+name = "director_engine"
+version = "0.1.0"
+edition = "2021"
+categories = [ "framework", "algorithms", "rust-patterns", "gamedev"]
+keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
+description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
+homepage = "https://github.com/just-do-halee/director"
+repository = "https://github.com/just-do-halee/director"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
