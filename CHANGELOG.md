@@ -2,8 +2,6 @@
 
 ## [Unreleased] - ReleaseDate
 
-## [0.2.0] - 2022-09-15
-
 ### BREAKING CHANGES
 
 - Renamed Self::lock_sup\_\_\[STATE]() to Self::lock_sup`er`\_\_\[STATE]().
