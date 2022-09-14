@@ -1,6 +1,6 @@
 [package]
 name = "director_core"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 categories = [ "development-tools", "algorithms", "rust-patterns", "game-development"]
 keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
@@ -11,7 +11,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 # director
-director_macros = { version = "0.1" }
+director_macros = { version = "0.2" }
 # director_macros = {path = "../director_macros"}
 
 # other
