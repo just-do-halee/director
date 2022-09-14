@@ -2,7 +2,7 @@
 name = "director_core"
 version = "0.1.0"
 edition = "2021"
-categories = [ "framework", "algorithms", "rust-patterns", "gamedev"]
+categories = [ "development-tools", "algorithms", "rust-patterns", "game-development"]
 keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
 description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
 homepage = "https://github.com/just-do-halee/director"
@@ -11,7 +11,8 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 # director
-director_macros = {path = "../director_macros"}
+director_macros = { version = "0.1" }
+# director_macros = {path = "../director_macros"}
 
 # other
 paste = "1.0.9"

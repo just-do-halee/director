@@ -14,7 +14,7 @@ dependencies = [
 name = "director_core"
 version = "0.1.0"
 dependencies = [
- "director_macros",
+ "director_macros 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
  "paste",
 ]
@@ -26,6 +26,17 @@ version = "0.1.0"
 [[package]]
 name = "director_macros"
 version = "0.1.0"
+dependencies = [
+ "heck",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "director_macros"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ba6d7b80ef8465fa4c6a2cada41bebd87aa82148992b9d846265db0a9e44d60"
 dependencies = [
  "heck",
  "quote",

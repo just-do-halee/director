@@ -2,7 +2,7 @@
 name = "director"
 version = "0.1.0"
 edition = "2021"
-categories = [ "framework", "algorithms", "rust-patterns", "gamedev"]
+categories = [ "development-tools", "algorithms", "rust-patterns", "game-development"]
 keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
 description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
 homepage = "https://github.com/just-do-halee/director"
@@ -28,6 +28,7 @@ name = "basic"
 path = "examples/basic/basic.rs"
 
 [dependencies]
-director_core = { path = "crates/director_core", version = "0.1" }
+director_core = { version = "0.1" }
+# director_core = { path = "crates/director_core", version = "0.1" }
 lazy_static = "1.4.0"
 

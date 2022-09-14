@@ -1,3 +1,5 @@
+/// Indicates that the toggle is off.
+///
 /// Do not use
 /// ```ignore
 /// director::off!(state: Self, ..)
@@ -17,6 +19,8 @@ macro_rules! off {
     };
 }
 
+/// Indicates that the toggle is on.
+///
 /// Do not use
 /// ```ignore
 /// director::on!(state: Self, ..)
