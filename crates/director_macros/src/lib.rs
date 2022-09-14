@@ -129,7 +129,7 @@ pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
                 "
                     #[inline]
                     #[allow(non_snake_case)]
-                    pub fn lock_sup__{snake_case_name}<'a>() -> director::___::StateController<'a, Engine, {name}> {{
+                    pub fn lock_super__{snake_case_name}<'a>() -> director::___::StateController<'a, Engine, {name}> {{
                         {name}::lock()
                     }}
                 ",
