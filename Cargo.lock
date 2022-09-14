@@ -6,13 +6,24 @@ version = 3
 name = "director"
 version = "0.1.0"
 dependencies = [
- "director_core",
+ "director_core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
 ]
 
 [[package]]
 name = "director_core"
 version = "0.1.0"
+dependencies = [
+ "director_macros 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "lazy_static",
+ "paste",
+]
+
+[[package]]
+name = "director_core"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "71ad085180918e2d162fdfe2dd775f30f284ca5431685355e8f05ec4e60a88b9"
 dependencies = [
  "director_macros 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
