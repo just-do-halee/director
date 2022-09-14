@@ -1,6 +1,6 @@
 [package]
 name = "director"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 categories = [ "development-tools", "algorithms", "rust-patterns", "game-development"]
 keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
@@ -28,7 +28,7 @@ name = "basic"
 path = "examples/basic/basic.rs"
 
 [dependencies]
-director_core = { version = "0.1" }
-# director_core = { path = "crates/director_core", version = "0.1" }
+director_core = { version = "0.2" }
+# director_core = { path = "crates/director_core" }
 lazy_static = "1.4.0"
 

@@ -4,28 +4,28 @@ version = 3
 
 [[package]]
 name = "director"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
- "director_core 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "director_core 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
 ]
 
 [[package]]
 name = "director_core"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
- "director_macros 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "director_macros 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
  "paste",
 ]
 
 [[package]]
 name = "director_core"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "71ad085180918e2d162fdfe2dd775f30f284ca5431685355e8f05ec4e60a88b9"
+checksum = "72b2764da894d6c8901b224df0a90e835f0bc145e05dffee68b54a9d7745f3b5"
 dependencies = [
- "director_macros 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "director_macros 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
  "paste",
 ]
@@ -36,7 +36,7 @@ version = "0.1.0"
 
 [[package]]
 name = "director_macros"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "heck",
  "quote",
@@ -45,9 +45,9 @@ dependencies = [
 
 [[package]]
 name = "director_macros"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ba6d7b80ef8465fa4c6a2cada41bebd87aa82148992b9d846265db0a9e44d60"
+checksum = "73d590305f8f3e1289705b86eea8fbaf117bd269fc4f617595e8a0ff127c468e"
 dependencies = [
  "heck",
  "quote",

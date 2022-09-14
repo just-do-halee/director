@@ -37,7 +37,7 @@ pub struct StateSub {
 
 impl director::State<Engine> for StateSub {
     fn toggle(engine: &mut Engine, inner: Option<&Self>) -> bool {
-        Self::lock_sup__state_foo().get().count < -100
+        Self::lock_super__state_foo().get().count < -100
     }
     fn load(engine: &mut Engine) -> Self {
         Self { sub_count: 0 }
