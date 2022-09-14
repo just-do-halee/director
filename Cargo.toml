@@ -12,6 +12,7 @@ readme = "README.md"
 
 exclude = [
     "RELEASE.md",
+    "release.toml",
     ".gitignore",
     ".github/",
     "crates/"

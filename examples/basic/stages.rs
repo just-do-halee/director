@@ -1,8 +1,5 @@
 #![allow(unused_variables, dead_code)]
 
-mod stage_a;
-mod stage_b;
-
 use crate::Engine;
 
 #[director::state {
