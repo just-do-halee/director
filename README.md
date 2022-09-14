@@ -19,7 +19,7 @@
 | [Examples](./examples/) | [Docs](https://docs.rs/director) | [Latest Note](./CHANGELOG.md) |
 
 ```toml
-director = "0.1.0"
+director = "0.2.0"
 ```
 
 <br>
@@ -44,7 +44,7 @@ impl director::State<Engine> for StateFoo {
     }
     /// This creates and imports new initial state on this local state machine when the toggle's on.
     fn load(engine: &mut Engine) -> Self {
-        Self { count: Self::lock_sup__state_baz().get().count }
+        Self { count: Self::lock_super__state_baz().get().count }
     }
     /// This executes custom logics and manipulates this local state machine's states.
     fn run(&mut self, engine: &mut Engine) {
