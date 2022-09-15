@@ -22,9 +22,11 @@
 director = "0.3.0"
 ```
 
-<br>
+## **`Why?`**
 
-## **`Getting Started`**
+Because writing state-machine is kind of tedious. Not for human way. It is difficult to achieve flexibility, readability and more analyzability to the architecture. [This crate](https://crates.io/crates/director) gives all of them. And well optimized[ex:) RAII]. So you don't need to worry way bad performance for your implementation.
+
+## **`How to use,`**
 
 ```rust
 use crate::Engine; // Any common state
@@ -63,6 +65,6 @@ impl director::State<Engine> for StateFoo {
 pub struct Engine; // i.e) dummy engine
 
 fn main() {
-    StateFoo::run(&mut engine);
+    StateBaz::run(&mut engine);
 }
 ```
