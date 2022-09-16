@@ -19,7 +19,7 @@
 | [Examples](./examples/) | [Docs](https://docs.rs/director) | [Latest Note](./CHANGELOG.md) |
 
 ```toml
-director = "0.3"
+director = "0.4.0"
 # { default-features = false } is for no_std
 ```
 

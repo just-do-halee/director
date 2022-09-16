@@ -10,4 +10,4 @@ repository = "https://github.com/just-do-halee/director"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-director = { version = "0.3", path = "../.." }
+director = { version = "0.4", path = "../.." }
