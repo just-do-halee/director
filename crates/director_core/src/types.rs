@@ -1,4 +1,3 @@
-
 pub trait State<Engine> {
     /// This determines whether or not to run this local state machine.
     fn toggle(engine: &mut Engine, inner: Option<&Self>) -> bool;
