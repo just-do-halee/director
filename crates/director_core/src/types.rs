@@ -1,5 +1,3 @@
-pub type StateOrigin<S> = std::sync::Mutex<Option<S>>;
-pub type StateGuard<'a, S> = std::sync::MutexGuard<'a, Option<S>>;
 
 pub trait State<Engine> {
     /// This determines whether or not to run this local state machine.

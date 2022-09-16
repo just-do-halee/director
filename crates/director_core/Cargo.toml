@@ -1,8 +1,8 @@
 [package]
 name = "director_core"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
-categories = [ "development-tools", "algorithms", "rust-patterns", "game-development"]
+categories = [ "development-tools", "algorithms", "rust-patterns", "game-development", "no-std"]
 keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
 description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
 homepage = "https://github.com/just-do-halee/director"
@@ -10,10 +10,11 @@ repository = "https://github.com/just-do-halee/director"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-# director
-director_macros = { version = "0.2" }
-# director_macros = {path = "../director_macros"}
+paste = { version = "1" }
+director_macros = { version = "0.3", path = "../director_macros" }
 
-# other
-paste = "1.0.9"
-lazy_static = "1.4.0"
+lazy_static = { version = "1", default-features = false, features = ["spin_no_std"]}
+
+[features]
+default = ["std"]
+std = []

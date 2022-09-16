@@ -3,6 +3,11 @@ extern crate proc_macro;
 use proc_macro::{Delimiter, Ident, TokenStream, TokenTree};
 use quote::quote;
 
+fn token_stream_with_error(mut tokens: TokenStream, error: syn::Error) -> TokenStream {
+    tokens.extend(TokenStream::from(error.into_compile_error()));
+    tokens
+}
+
 #[derive(Debug, Default)]
 struct StateArgs {
     sup: Vec<Ident>,
@@ -76,7 +81,102 @@ impl StateArgs {
 }
 
 #[proc_macro_attribute]
-pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
+pub fn main(attr: TokenStream, item: TokenStream) -> TokenStream {
+    let input: syn::ItemFn = match syn::parse(item.clone()) {
+        Ok(it) => it,
+        Err(e) => return token_stream_with_error(item, e),
+    };
+
+    if input.sig.ident == "main" && !input.sig.inputs.is_empty() {
+        let msg = "The main function cannot accept arguments.";
+        return syn::Error::new_spanned(&input.sig.ident, msg)
+            .into_compile_error()
+            .into();
+    }
+
+    let path: syn::Path = match syn::parse(attr.clone()) {
+        Ok(it) => it,
+        Err(_) => {
+            let msg = "Please input the parent path of `Mutex` and `MutexGuard` structs. #[director::main(std::sync)] <- like this.";
+            return token_stream_with_error(attr, syn::Error::new_spanned(&input.sig.ident, msg));
+        }
+    };
+
+    quote! {
+        #input
+
+        pub mod ___director__main___ {
+            pub use director::___::*;
+
+            pub use #path::{Mutex, MutexGuard};
+
+            pub type StateOrigin<S> = Mutex<Option<S>>;
+            pub type StateGuard<'a, S> = MutexGuard<'a, Option<S>>;
+
+            #[derive(Debug)]
+            pub struct StateController<'a, Engine, State: director::State<Engine>> {
+                state_guard: StateGuard<'a, State>,
+                phantomdata: core::marker::PhantomData<Engine>,
+            }
+
+            impl<'a, Engine, State> StateController<'a, Engine, State>
+            where
+                State: director::State<Engine>,
+            {
+                #[inline]
+                pub fn new(state_guard: StateGuard<'a, State>) -> Self {
+                    Self {
+                        state_guard,
+                        phantomdata: core::marker::PhantomData,
+                    }
+                }
+
+                #[inline]
+                pub fn into_inner(self) -> StateGuard<'a, State> {
+                    self.state_guard
+                }
+                #[inline]
+                pub fn as_inner(&self) -> &StateGuard<'a, State> {
+                    &self.state_guard
+                }
+                #[inline]
+                pub fn as_mut_inner(&mut self) -> &mut StateGuard<'a, State> {
+                    &mut self.state_guard
+                }
+
+                #[inline]
+                pub fn get_option(&self) -> Option<&State> {
+                    self.as_inner().as_ref()
+                }
+                #[inline]
+                pub fn get_mut_option(&mut self) -> Option<&mut State> {
+                    self.as_mut_inner().as_mut()
+                }
+
+                #[inline]
+                pub fn get(&self) -> &State {
+                    self.as_inner().as_ref().unwrap()
+                }
+                #[inline]
+                pub fn get_mut(&mut self) -> &mut State {
+                    self.as_mut_inner().as_mut().unwrap()
+                }
+
+                #[inline]
+                pub fn set(&mut self, value: Option<State>) {
+                    **self.as_mut_inner() = value;
+                }
+
+                #[inline]
+                pub fn unlock(self) {}
+            }
+        }
+    }
+    .into()
+}
+
+#[proc_macro_attribute]
+pub fn state(attr: TokenStream, item: TokenStream) -> TokenStream {
     let struct_body = syn::parse_macro_input!(item as syn::DeriveInput);
     let name = &struct_body.ident;
     let name_string = name.to_string();
@@ -128,8 +228,7 @@ pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
             format!(
                 "
                     #[inline]
-                    #[allow(non_snake_case)]
-                    pub fn lock_super__{snake_case_name}<'a>() -> director::___::StateController<'a, Engine, {name}> {{
+                    pub fn lock_super__{snake_case_name}<'a>() -> crate::___director__main___::StateController<'a, Engine, {name}> {{
                         {name}::lock()
                     }}
                 ",
@@ -147,8 +246,7 @@ pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
             format!(
                 "
                     #[inline]
-                    #[allow(non_snake_case)]
-                    pub fn lock_sub__{snake_case_name}<'a>() -> director::___::StateController<'a, Engine, {name}> {{
+                    pub fn lock_sub__{snake_case_name}<'a>() -> crate::___director__main___::StateController<'a, Engine, {name}> {{
                         {name}::lock()
                     }}
                 ",
@@ -163,8 +261,8 @@ pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
     .unwrap();
 
     quote! {
-        director::___::lazy_static! {
-            static ref #state_name: director::___::StateOrigin<#name> = std::sync::Mutex::new(None);
+        crate::___director__main___::lazy_static! {
+            static ref #state_name: crate::___director__main___::StateOrigin<#name> = crate::___director__main___::Mutex::new(None);
         }
 
         #struct_body
@@ -173,8 +271,8 @@ pub fn attribute_state(attr: TokenStream, item: TokenStream) -> TokenStream {
 
 
            #[inline]
-           pub fn lock<'a>() -> director::___::StateController<'a, Engine, #name> {
-               director::___::StateController::new(#state_name.lock().unwrap())
+           pub fn lock<'a>() -> crate::___director__main___::StateController<'a, Engine, #name> {
+               crate::___director__main___::StateController::new(#state_name.lock().unwrap())
            }
 
            #[inline]

@@ -1,6 +1,14 @@
 <!-- next-header -->
 
-## [Unreleased] - ReleaseDate
+## [unreleased] - ReleaseDate
+
+### BREAKING CHANGES
+
+- Supported `#![no_std]`.
+- New attributes macro `#[director::main(`_MUTEX_PARENT_MOD_`)]`.
+- It can now configure its `Mutex` and `MutexGuard` like a cartridge.
+
+  Released by [@just-do-halee](https://github.com/just-do-halee).
 
 ## [0.3.0] - 2022-09-14
 

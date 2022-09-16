@@ -19,7 +19,8 @@
 | [Examples](./examples/) | [Docs](https://docs.rs/director) | [Latest Note](./CHANGELOG.md) |
 
 ```toml
-director = "0.3.0"
+director = "0.3"
+# { default-features = false } is for no_std
 ```
 
 ## **`Why?`**
@@ -64,7 +65,10 @@ impl director::State<Engine> for StateFoo {
 ```rust
 pub struct Engine; // i.e) dummy engine
 
+#[director::main(std::syn)] // It can be any kind of Mutex
 fn main() {
-    StateBaz::run(&mut engine);
+    for _ in 0..10000 {
+        StateBaz::run(&mut engine);
+    }
 }
 ```

@@ -5,6 +5,7 @@ use crate::Engine;
 #[director::state {
     sub = StateSub,
 }]
+#[derive(Debug)]
 pub struct StateFoo {
     count: i64,
 }
@@ -31,6 +32,7 @@ impl director::State<Engine> for StateFoo {
 #[director::state {
     super = StateFoo
 }]
+#[derive(Debug)]
 pub struct StateSub {
     sub_count: u64,
 }

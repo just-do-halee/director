@@ -6,26 +6,14 @@ version = 3
 name = "director"
 version = "0.3.0"
 dependencies = [
- "director_core 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "lazy_static",
+ "director_core",
 ]
 
 [[package]]
 name = "director_core"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
- "director_macros 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "lazy_static",
- "paste",
-]
-
-[[package]]
-name = "director_core"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "72b2764da894d6c8901b224df0a90e835f0bc145e05dffee68b54a9d7745f3b5"
-dependencies = [
- "director_macros 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "director_macros",
  "lazy_static",
  "paste",
 ]
@@ -33,21 +21,13 @@ dependencies = [
 [[package]]
 name = "director_engine"
 version = "0.1.0"
-
-[[package]]
-name = "director_macros"
-version = "0.2.0"
 dependencies = [
- "heck",
- "quote",
- "syn",
+ "director",
 ]
 
 [[package]]
 name = "director_macros"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "73d590305f8f3e1289705b86eea8fbaf117bd269fc4f617595e8a0ff127c468e"
+version = "0.3.0"
 dependencies = [
  "heck",
  "quote",
@@ -65,6 +45,9 @@ name = "lazy_static"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e2abad23fbc42b3700f2f279844dc832adb2b2eb069b2df918f455c4e18cc646"
+dependencies = [
+ "spin",
+]
 
 [[package]]
 name = "paste"
@@ -89,6 +72,12 @@ checksum = "bbe448f377a7d6961e30f5955f9b8d106c3f5e449d493ee1b125c1d43c2b5179"
 dependencies = [
  "proc-macro2",
 ]
+
+[[package]]
+name = "spin"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6e63cff320ae2c57904679ba7cb63280a3dc4613885beafb148ee7bf9aa9042d"
 
 [[package]]
 name = "syn"
