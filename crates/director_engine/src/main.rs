@@ -1,3 +1,4 @@
+#![no_std]
 #![allow(unused_variables, dead_code)]
 
 #[director::state{
@@ -9,7 +10,7 @@ pub struct StateA {
 }
 impl director::State<Engine> for StateA {
     fn toggle(engine: &mut Engine, inner: Option<&Self>) -> bool {
-        todo!()
+        director::on!(inner, None)
     }
     fn load(engine: &mut Engine) -> Self {
         todo!()
@@ -45,5 +46,5 @@ impl director::State<Engine> for StateA2 {
 }
 type Engine = ();
 
-#[director::main(std::sync)]
+#[director::main(spin)]
 fn main() {}

@@ -11,3 +11,4 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 director = { version = "0.4", path = "../.." }
+spin = {version = "0.9.4", features = ["mutex"] }
