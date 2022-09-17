@@ -261,9 +261,7 @@ pub fn state(attr: TokenStream, item: TokenStream) -> TokenStream {
     .unwrap();
 
     quote! {
-        crate::___director__main___::lazy_static! {
-            static ref #state_name: crate::___director__main___::StateOrigin<#name> = crate::___director__main___::Mutex::new(None);
-        }
+        static #state_name: crate::___director__main___::StateOrigin<#name> = crate::___director__main___::Mutex::new(None);
 
         #struct_body
 
@@ -272,7 +270,7 @@ pub fn state(attr: TokenStream, item: TokenStream) -> TokenStream {
 
            #[inline]
            pub fn lock<'a>() -> crate::___director__main___::StateController<'a, Engine, #name> {
-               crate::___director__main___::StateController::new(#state_name.lock().unwrap())
+               crate::___director__main___::StateController::new(#state_name.try_lock().unwrap())
            }
 
            #[inline]
