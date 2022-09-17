@@ -3,7 +3,7 @@ name = "director"
 version = "0.4.0"
 edition = "2021"
 categories = [ "development-tools", "algorithms", "rust-patterns", "game-development", "no-std"]
-keywords = [ "director", "engine", "versatile", "game", "state-machine" ]
+keywords = [ "director", "engine", "versatile", "game", "state-machine", "no-std" ]
 description = "Director is a simple, versatile, ergonomic state machine in Rust-lang."
 homepage = "https://github.com/just-do-halee/director"
 repository = "https://github.com/just-do-halee/director"
@@ -28,4 +28,4 @@ name = "basic"
 path = "examples/basic/basic.rs"
 
 [dependencies]
-director_core = { version = "0.3", path = "crates/director_core" }
+director_core = { version = "0.5", path = "crates/director_core" }
