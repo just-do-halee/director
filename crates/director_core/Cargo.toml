@@ -12,9 +12,3 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 paste = { version = "1" }
 director_macros = { version = "0.3", path = "../director_macros" }
-
-lazy_static = { version = "1", default-features = false, features = ["spin_no_std"]}
-
-[features]
-default = ["std"]
-std = []
