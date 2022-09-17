@@ -19,7 +19,7 @@
 | [Examples](./examples/) | [Docs](https://docs.rs/director) | [Latest Note](./CHANGELOG.md) |
 
 ```toml
-director = "0.4.0"
+director = "0.5.0"
 ```
 
 ## **`Why?`**

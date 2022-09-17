@@ -2,6 +2,9 @@
 
 ## [unreleased] - ReleaseDate
 
+
+## [0.5.0] - 2022-09-17
+
 ### BREAKING CHANGES
 
 - Removed `lazy_static!` crate.
@@ -40,7 +43,9 @@ Released by [@just-do-halee](https://github.com/just-do-halee).
 
 <!-- next-url -->
 
-[unreleased]: https://github.com/just-do-halee/director/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/just-do-halee/director/compare/v0.5.0...HEAD
+
+[0.5.0]: https://github.com/just-do-halee/director/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/just-do-halee/director/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/just-do-halee/director/compare/v0.1.0...v0.3.0
 [0.1.0]: https://github.com/just-do-halee/director/compare/v0.1.0...v0.1.0

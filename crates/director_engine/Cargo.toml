@@ -10,5 +10,5 @@ repository = "https://github.com/just-do-halee/director"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-director = { version = "0.4", path = "../.." }
+director = { version = "0.5", path = "../.." }
 spin = {version = "0.9.4", features = ["mutex"] }
