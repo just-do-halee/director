@@ -28,8 +28,4 @@ name = "basic"
 path = "examples/basic/basic.rs"
 
 [dependencies]
-director_core = { version = "0.3", path = "crates/director_core", default-features = false }
-
-[features]
-default = ["std"]
-std = ["director_core/default"]
+director_core = { version = "0.3", path = "crates/director_core" }

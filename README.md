@@ -1,6 +1,6 @@
 # **`Director`**
 
-`Director` is a simple, versatile, ergonomic state machine in Rust-lang.
+`Director` is a simple, versatile, ergonomic state machine in Rust-lang. (no-std)
 
 [![CI][ci-badge]][ci-url]
 [![Crates.io][crates-badge]][crates-url]
@@ -20,7 +20,6 @@
 
 ```toml
 director = "0.4.0"
-# { default-features = false } is for no_std
 ```
 
 ## **`Why?`**

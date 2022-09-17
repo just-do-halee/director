@@ -2,6 +2,19 @@
 
 ## [unreleased] - ReleaseDate
 
+### BREAKING CHANGES
+
+- Removed `lazy_static!` crate.
+
+## Improved
+
+- Fully `#![no_std]` without any of features option.
+
+## Fixed
+
+- `#[director::main(any_not_std_mod)]` is now properly available.
+
+Released by [@just-do-halee](https://github.com/just-do-halee).
 
 ## [0.4.0] - 2022-09-16
 
@@ -28,7 +41,6 @@ Released by [@just-do-halee](https://github.com/just-do-halee).
 <!-- next-url -->
 
 [unreleased]: https://github.com/just-do-halee/director/compare/v0.4.0...HEAD
-
 [0.4.0]: https://github.com/just-do-halee/director/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/just-do-halee/director/compare/v0.1.0...v0.3.0
 [0.1.0]: https://github.com/just-do-halee/director/compare/v0.1.0...v0.1.0
