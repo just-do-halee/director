@@ -64,8 +64,9 @@ impl director::State<Engine> for StateFoo {
 ```rust
 pub struct Engine; // i.e) dummy engine
 
-#[director::main(std::syn)] // It can be any kind of Mutex
+#[director::main(std::sync)] // It can be any kind of Mutex
 fn main() {
+    let mut engine = Engine;
     for _ in 0..10000 {
         StateBaz::run(&mut engine);
     }
